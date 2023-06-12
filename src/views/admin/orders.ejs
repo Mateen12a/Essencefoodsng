@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+  </head>
+  <link
+    href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <body>
+    <section class="orders section light-section">
+      <div class="container max-w-max mx-auto pt-2 px-2">
+        <h1 class="font-bold text-lg mb-4 underline md:text-2xl">All Orders</h1>
+        <table class="w-full table-auto bg-white text-green-900">
+          <thead>
+            <tr>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">Orders</th>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">Customer</th>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">Address</th>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">Status</th>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">
+                Placed at
+              </th>
+              <th class="px-4 py-2 text-left font-bold md:text-xl">
+                Payment Status
+              </th>
+            </tr>
+          </thead>
+          <tbody id="orderTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+    <script>
+      const stats = document.querySelector('#stated')
+      $(document).ready(function() {
+          $("select.statsch").change(function() {
+              let selectedItem = $(this).children("option:selected").val();
+              alert("You have selected the name - " + selectedItem);
+              if (selectedItem == "completed") {
+                stats.innerHTML = " "
+              }
+            });
+        });
+    </script>
+  </body>
+</html>

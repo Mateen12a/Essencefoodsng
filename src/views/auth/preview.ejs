@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <link
+    href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <body>
+    <section class="login flex items-center justify-center pt-24">
+      <div class="w-full max-w-xs md:max-w-2xl">
+        <form
+          action="/preview"
+          method="POST"
+          class="shadow-lg bg-white dark:bg-gray-800 text-green-700 rounded px-8 pt-6 pb-8 mb-4"
+        >
+          <% if(messages.error) { %>
+          <span class="text-red-500 text-sm"><%= messages.error%></span>
+          <% } %>
+          <!--displaying id card image-->
+          <div>
+            <img
+              class="md:w-1/2 m-auto"
+              src="/uploads/<%= image %>"
+              alt="id card"
+            />
+          </div>
+          <div class="mb-4 mt-4">
+            <label class="block text-sm font-bold mb-2" for="username">
+              Username
+            </label>
+            <input
+              name="username"
+              value="<%=username%>"
+              class="text-gray-900 dark:text-white shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              readonly="readonly"
+              ;
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="username">
+              Name
+            </label>
+            <input
+              name="name"
+              value="<%= name%>"
+              class="text-gray-900 dark:text-white shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              readonly="readonly"
+              ;
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="username">
+              Email
+            </label>
+            <input
+              name="email"
+              value="<%= email%>"
+              class="text-gray-900 dark:text-white shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="email"
+              readonly="readonly"
+              ;
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="username">
+              Postal Code
+            </label>
+            <input
+              name="postal_code"
+              value="<%= postal_code%>"
+              class="text-gray-900 dark:text-white shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              readonly="readonly"
+              ;
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-bold mb-2" for="username">
+              Mobile No
+            </label>
+            <input
+              name="mobile_no"
+              value="<%= mobile_no%>"
+              class="text-gray-900 dark:text-white shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              readonly="readonly"
+              ;
+            />
+          </div>
+          <div class="flex items-center justify-between">
+            <button
+              class="btn-primary rounded-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Register
+            </button>
+            <a
+              class="inline-block align-baseline font-bold text-sm"
+              href="/register"
+            >
+              Back
+            </a>
+          </div>
+        </form>
+        <p class="text-center text-gray-500 text-xs">
+          &copy;2023 MDev. All rights reserved.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

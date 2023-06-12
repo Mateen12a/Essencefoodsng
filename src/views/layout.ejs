@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essencefoods - Quality is assured</title>
+  <link rel="stylesheet" href="/css/app.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!--========== BOX ICONS ==========-->
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <!--========== SCROLL TOP ==========-->
+  <a href="#" class="scrolltop" id="scroll-top">
+    <i class="bx bx-chevron-up scrolltop__icon"></i>
+  </a>
+
+  <!--========== HEADER ==========-->
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="/" class="nav__logo"><img style="margin-top: 20px;" width="100px" height="40px" src="/img/essencefoods.png" alt="essencefoods"/></a>
+
+      <div class="nav__menu " id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="/" style="color: #fe5f1e;" class="hover:text-white-800 nav__link active-link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="/menu"  style="color: #fe5f1e;" class="hover:text-green-800 nav__link active-link">Menu</a>
+          </li>
+          <% if(user) { %>
+            <% if(user.role==="customer" ) { %>
+            <li class="nav__item">
+              <a href="/customer/orders" style="color: #fe5f1e;" class="hover:text-green-800 nav__link active-link">Orders</a>
+            </li>
+            <li class="nav__item">
+              <a href="/customer/profile" style="color: #fe5f1e;" class="hover:text-green-800 nav__link active-link">Your Profile</a>
+            </li>
+            <% } 
+            else { %>
+              <li class="nav__item">
+                <a href="/admin/orders" style="color: #fe5f1e;" class="hover:text-green-700 nav__link active-link">Orders</a>
+              </li>
+              <% } %>
+                <li class="nav__item">
+                  <form id="logout" action="/logout" method="POST">
+                    <a class="hover:text-green-800 nav__link active-link" style="color: #fe5f1e;" onclick="document.getElementById('logout').submit()"
+                      href="#">Logout</a>
+                  </form>
+                </li>
+                <% } else { %>
+                    <li class="nav__item">
+                      <a style="color: #fe5f1e;" class="hover:text-green-800 nav__link active-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav__item">
+                      <a style="color: #fe5f1e;" class="hover:text-green-800 nav__link active-link" href="/login">Login</a>
+                    </li>
+                    <% } %>
+                      <li class="nav__cart nav__item">
+                        <a href="/cart" class="shopping__cart nav__link active-link rounded-full flex items-center">
+                          <span id="cartCounter" class="font-bold">
+                            <%= session.cart ? session.cart.totalQty : '' %>
+                          </span>
+                          <img class="nav__link active-link" src="/img/cart1.png" alt="cart.png" />
+                        </a>
+                      </li>
+
+                      <li><i class="bx bx-moon change-theme" id="theme-button">Theme</i></li>
+        </ul>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="bx bx-menu"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== HEADER ==========
+
+    <nav class="container px-8 mx-auto flex items-center justify-between py-4">
+      <div class="">
+        <a href="/"><img src="/img/logo.png" alt="logo.png" /></a>
+      </div>
+      <div class="">
+        <ul class="flex items-center">
+          <li class="ml-6"><a href="/">Home</a></li>
+          <li class="ml-6"><a href="/offers">Offers</a></li>
+          <% if(user) { %>
+          <li class="ml-6">
+            <form id="logout" action="/logout" method="POST">
+              <a onclick="document.getElementById('logout').submit()" href="#"
+                >Logout</a
+              >
+            </form>
+          </li>
+          <% } else { %>
+          <li class="ml-6"><a href="/register">Register</a></li>
+          <li class="ml-6"><a href="/login">Login</a></li>
+          <% } %>
+
+          <li class="ml-6">
+            <a
+              href="/cart"
+              class="inline-block px-4 py-2 rounded-full flex items-center"
+            >
+              <span id="cartCounter" class="text-white font-bold pr-2"
+                ><%= session.cart ? session.cart.totalQty : '' %></span
+              >
+              <img src="/img/cart.png" alt="cart.png" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+
+  <main class="l-main"></main>
+  <!--========== HOME ==========-->
+  <%- body %>
+    </main>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+      <div class="footer__container bd-grid">
+        <div class="footer__content">
+          <a href="#" style="color: #fe5f1e;" class="footer__logo">Essence Foods</a>
+          <span class="footer__description"><a href="mailto:ajidagbamateen12@gmail.com">Mdev company</a></span>
+          <div>
+            <a href="#" class="footer__social"><i class="bx bxl-facebook"></i></a>
+            <a href="#" target="_blank" class="footer__social"><i
+                class="bx bxl-linkedin"></i></a>
+            <a href="#" class="footer__social"><i class="bx bxl-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Services</h3>
+          <ul>
+            <li><a href="/delivery" class="footer__link">Delivery</a></li>
+            <li><a href="/menu" class="footer__link">Pricing</a></li>
+            <li><a href="/menu#fastfoods" class="footer__link">Fast food</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Information</h3>
+          <ul>
+            <!-- <li><a href="#" class="footer__link">Event</a></li> -->
+            <li><a href="/#contact" class="footer__link">Contact us</a></li>
+            <li><a href="/privacy_policy" class="footer__link">Privacy policy</a></li>
+            <li><a href="/privacy_policy#TOS" class="footer__link">Terms of services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul>
+            <li>1, Morenikeji Oshibanjo close</li>
+            <li>Badore, Ajah, Lekki - Lagos</li>
+            <li>08023445566</li>
+            <li>essencefoods@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__copy">&#169; 2023 Essencefoods. All right reserved</p>
+    </footer>
+
+    <!--========== MAIN JS ==========-->
+    <!-- <script defer src="/js/main.js"></script> -->
+    <script defer src="/socket.io/socket.io.js"></script>
+
+    <script defer src="/js/app.js"></script>
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</body>
+
+</html>
