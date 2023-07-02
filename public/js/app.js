@@ -2343,7 +2343,7 @@ var sr = ScrollReveal({
   duration: 1000,
   reset: true
 });
-sr.reveal(".home__data, .home__img,\n            .about__data, .about__img,\n            .services__content, .menu__content,\n            .app__data, .app__img,\n            .contact__data, .contact__button,\n            .footer__content", {
+sr.reveal(".home__data, .home__img,\n            .about__data, .about__img,\n            .services__content, .menu__content,\n            .app__data, .app__img,\n            .contact__data, .contact__button,\n            .comment, .commentname, .commentday, .commenttext, .namecomment, .content, .postcomment, .footer__content", {
   interval: 200
 });
 

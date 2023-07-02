@@ -13,7 +13,7 @@ const passport = require("passport");
 const Emitter = require("events");
 
 // Database connection
-const DBUrl = "mongodb+srv://mateen:mateen@cluster0.ydjp5.mongodb.net/TodoDB?retryWrites=true&w=majority";
+const DBUrl = "mongodb+srv://mateen:mateen@cluster0.ydjp5.mongodb.net/EssenceDB?retryWrites=true&w=majority";
 mongoose.connect(DBUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,

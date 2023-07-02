@@ -4,6 +4,8 @@ const cartController = require("../app/http/controllers/customers/cartController
 const orderController = require("../app/http/controllers/customers/orderController");
 const adminOrderController = require("../app/http/controllers/admin/orderController");
 const statusController = require("../app/http/controllers/admin/statusController");
+const storeCommentController = require("../app/http/controllers/customers/commentController")
+const commentmenucontroller = require("../app/http/controllers/commentmenucontroller");
 
 // middlewares
 const check = require("../app/http/middleware/check");
@@ -18,7 +20,7 @@ const initRoutes = (app) => {
 
   //   home
   app.get("/", homeController().index);
-  app.get("/menu", homeController().menu);
+  app.get("/menu", homeController().menu, commentmenucontroller);
 
   //   auth
   app.get("/login", guest, authController().login);
@@ -40,6 +42,7 @@ const initRoutes = (app) => {
   // Admin routes
   app.get("/admin/orders", admin, adminOrderController().index);
   app.post("/admin/order/status", admin, statusController().update);
+  app.post("/comments/store", homeController().commentPost);
 
   // contactus
   app.post("/contact_us", homeController().contact_us);

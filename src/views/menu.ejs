@@ -271,7 +271,42 @@
         >View all food Items-></a
       >
     </section>
-
+    <hr>
+    <!--Comment Box-->
+   <h1 class="text-center font-black grid-cols-3 comment">Comments From Our Valued Customers</h1>
+   <div class="container comment">
+       <div class="flex w-90 justify-between border rounded-md">
+           <div id="commentbox" class="grid-cols-3 ">
+               <div class="d-flex flex-column comment-section border p-3" style="overflow-y: scroll; height: 310px;">
+                   <div class="grid-cols-4 gap-3 items-center comment">
+                    <% comments.forEach(function(comment) { %> 
+                       <div class=" d-flex grid-cols-2 flex-row user-info">
+                           <div class="d-flex flex-column justify-content-start ml-2">
+                           <span class="d-block font-bold name commentname"><%= comment.name %></span>
+                           <span class="text-sm text-gray-400 font-medium commentday">Shared Comment on - <%= comment.createdAt.toDateString() %> </span>
+                           </div>
+                       </div>
+                       <div class="text-gray-600 mt-2 grid-cols-2">
+                           <p class="comment-text commenttext"><%= comment.content %></p>
+                       </div> <% })%>
+                   </div>
+                   </div>
+                   <div class="bg-light p-2">
+                       <div class="d-flex flex-row align-items-start">
+                       <form action="/comments/store" class="form-inline" role="form" method="POST">
+                           <div class="form-group">
+                           <input name="name"  class="w-50 rounded border border-2 border-emerald-400 font-medium placeholder-gray-700 focus:outline-none namecomment" type="text" placeholder="Your Name"  required/>
+                       </div>
+                           <textarea name="content"  value="<%=messages.content%>" placeholder="Your Comment" class="content w-full bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none" required></textarea>
+                       <div class="mt-2 text-center"><button class="px-2.5 py-1.5 rounded-md .text-gray-900:hover text-gray-700 postcomment" style="background: #fe5f1e;"  type="submit">Post Your comment</button>
+                       </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+       
+   </div>
     <script>
       // Search For Pizza
       //Get input Element

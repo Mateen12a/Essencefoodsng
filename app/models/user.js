@@ -9,7 +9,6 @@ const userSchema = new Schema(
     postal_code: { type: Number, required: true },
     mobile_no: { type: Number, required: true },
     password: { type: String, required: true },
-    image: { type: String, required: true },
     role: { type: String, default: "customer" },
   },
   { timestamps: true }
