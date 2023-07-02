@@ -106,3 +106,5 @@ NodeJS, Express, MongoDB, Mongoose.
 
 ejs, Tailwindcss, scss.
 ###### Dev-Dependencies
+
+Nodemon.
